@@ -1,0 +1,19 @@
+﻿@model TcNoSorgulaWebApi_03_03_22.Models.Person
+@{
+    ViewBag.Title = "KontrolSonuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Sonuc == "olumlu")
+{
+    <h4>Sayın @Model.Name @Model.Surname Sorgulama sonucunuz başarılı. <u>Sorgulama sonucunda veritabanına kaydınız oluşturulmuştur!</u></h4>
+}
+else if (ViewBag.Sonuc == "olumsuz")
+{
+    <h4>Sayın @Model.Name @Model.Surname Sorgulama sonucunuz başarılı. <u>Sorgulama sonucunda veritabanında zaten kaydınız bulunduğu için oluşturulmamıştır!</u></h4>
+}
+else if (ViewBag.Sonuc == "yok")
+{
+    <h4>Sorgulama sonucunda kayıt bulunamadı. Bilgileri kontrol edip tekrar deneyiniz!</h4>
+}
+@Html.ActionLink("Geri Dön","Index",null, new {@class="btn btn-primary"})
