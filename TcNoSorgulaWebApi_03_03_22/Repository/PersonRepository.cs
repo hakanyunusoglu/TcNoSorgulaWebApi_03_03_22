@@ -6,9 +6,13 @@ using TcNoSorgulaWebApi_03_03_22.Models;
 
 namespace TcNoSorgulaWebApi_03_03_22.Repository
 {
-    public class PersonRepository<T> : IPersonRepository<T> where T : class, new()
+    public class PersonRepository/*<T> */: IPersonRepository/*<T> where T : class, new()*/
     {
-        DataContext db = new DataContext();
+        private DataContext db;
+        public PersonRepository(DataContext _db)
+        {
+            db=_db;
+        }
         public void CreatePerson(Person person)
         {
             db.Persons.Add(person);

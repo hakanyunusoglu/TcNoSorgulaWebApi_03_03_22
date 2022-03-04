@@ -7,7 +7,7 @@ using TcNoSorgulaWebApi_03_03_22.Models;
 
 namespace TcNoSorgulaWebApi_03_03_22.Repository
 {
-    public interface IPersonRepository<T> where T : class, new()
+    public interface IPersonRepository/*<T> where T : class, new()*/
     { 
         void CreateTcNoHash(string tcNo, out byte[] tcNoHash, out byte[] tcNoSalt);
         void CreatePerson(Person person);

@@ -10,8 +10,13 @@ namespace TcNoSorgulaWebApi_03_03_22.Controllers
 {
     public class HomeController : Controller
     {
-        public PersonRepository<Person> rep = new PersonRepository<Person>();
+        //public PersonRepository<Person> rep = new PersonRepository<Person>();
 
+        private IPersonRepository rep;
+        public HomeController(IPersonRepository _rep)
+        {
+            rep = _rep;
+        }
         public ActionResult Index()
         {
             return View();
